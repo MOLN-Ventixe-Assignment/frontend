@@ -6,7 +6,7 @@ const EventItem = ({item}) => {
     <Link to={`/events/${item.id}`}>
         <div className="event-card">
             <div className="card-img-container"></div>
-            <div>{item}</div>
+            <div>{item.location}</div>
             <div>{item.title}</div>
             <div>{item.location}</div>
         </div>
