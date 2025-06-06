@@ -68,42 +68,44 @@ const BookingEventPage = () => {
     //}, [])
 
     return (
-        <div>
-            <h1>Booking Event - {event.title}</h1>
+        <section id="booking-event">
+        <div className="booking-event-card">
+            <h4 className="bookingEventTitle">Booking Event - {event.title}</h4>
             <div>
                 <form onSubmit={handleSubmit} noValidate>
-                    <div>
+                    <div className="form-group">
                         <label>First Name</label>
-                        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                        <input type="text" placeholder="Your first name" name="firstName" value={formData.firstName} onChange={handleChange} required />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label>Last Name</label>
-                        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                        <input type="text" placeholder="Your last name" name="lastName" value={formData.lastName} onChange={handleChange} required />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label>E-mail</label>
-                        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                        <input type="email" placeholder="Your email address" name="email" value={formData.email} onChange={handleChange} required />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label>Street Name</label>
-                        <input type="text" name="streetName" value={formData.streetName} onChange={handleChange} required />
+                        <input type="text" placeholder="Your street address" name="streetName" value={formData.streetName} onChange={handleChange} required />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label>Postal Code</label>
-                        <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} required />
+                        <input type="text" placeholder="Your postal code" name="postalCode" value={formData.postalCode} onChange={handleChange} required />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label>City</label>
-                        <input type="text" name="city" value={formData.city} onChange={handleChange} required />
+                        <input type="text" placeholder="Your city" name="city" value={formData.city} onChange={handleChange} required />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label>Ticket Quantity</label>
-                        <input type="text" name="ticketQuantity" value={formData.ticketQuantity} onChange={handleChange} required />
+                        <input type="text" placeholder="Number of tickets you want to order" name="ticketQuantity" value={formData.ticketQuantity} onChange={handleChange} required />
                     </div>
-                    <button type="submit">Book Now</button>
+                    <button type="submit" className="btn btn-book-event">Book Now</button>
                 </form>
             </div>
         </div>
+        </section>
     )
 }
 

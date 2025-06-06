@@ -20,9 +20,11 @@ const EventList = () => {
   
   return (
     <section id="events">
-        {
-            events.map(event => (<EventItem key={event.id} item={event} />))
-        }
+        <div className="event-list">
+            {
+                events.map(event => (<EventItem key={event.id} item={event} />))
+            }
+        </div>
     </section>
   )
 }

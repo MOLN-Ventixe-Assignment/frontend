@@ -20,11 +20,20 @@ const EventDetailsPage = () => {
     }, [])
   
     return (
-        <div className="event-details">
-           <h1>{event.title}</h1>
-           <Link to={`/events/booking/${id}`}>Book Event</Link>
-        </div>
+        <section id="event-details">
+            <div className="event-details-card">
+                <div className="card-img-container"></div>
+                <h4 className="eventTitleDetails">{event.title}</h4>
+                <div className="eventDate"><i class="fa-light fa-calendar-lines"></i>{event.displayDate}</div>
+                <div className="eventLocation"><i class="fa-regular fa-location-dot"></i>{event.location}</div>
+                <div class="divider"></div>
+                <div className="about">About Event</div>
+                <div className="eventDescription">{event.description}</div>
+                <Link className="btn btn-book" to={`/events/booking/${id}`}>Book Event</Link>
+            </div>
+        </section>
     )
+           
 }
 
 export default EventDetailsPage

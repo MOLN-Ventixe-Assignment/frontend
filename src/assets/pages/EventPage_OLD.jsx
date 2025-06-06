@@ -2,19 +2,19 @@ import React from 'react'
 import Nav from '../components/Nav'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { Outlet } from 'react-router-dom'
+import EventList from '../components/EventList'
 
-const PortalLayout = () => {
+const EventPage = () => {
   return (
     <div className="portal-wrapper">
         <Nav />
         <Header />
         <main>
-             <Outlet /> 
+            <EventList />
         </main>
         <Footer />
     </div>
   )
 }
 
-export default PortalLayout
+export default EventPage

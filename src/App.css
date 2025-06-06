@@ -1,20 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
+/* variable scheme */
 :root {
+    /* fonts */
     --font: "Inter", sans-serif;
 
+    /* font-weights */
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    --font-black: 900;
+
+    --primary-100: #F26CF9;
+    --primary-90: #F589FA;
+    --primary-50: #FCD3FE;
+
+    --secondary-110: #1C2346;
     --secondary-100: #37437D;
+    
     --gray-10: #FFFFFF;
     --gray-20: #F7F7F7;
+    --gray-30: #EDEDED;
     --gray-40: #E0E0E1;
+    --gray-50: #C3C3C4;
+    --gray-60: #9F9FA1;
+    --gray-70: #777779;
+    --gray-80: #636365;
+    --gray-90: #434345;
     --gray-100: #1E1E20;
     --cool-gray-10: #EEEFFF;
     --cool-gray-20: #E4E5F5;
-
 
     --headline-color: var(--secondary-100);
     --text-color: var(--gray-100);
@@ -25,14 +42,48 @@
     --footer-bg-color: var(--gray-20);
 
     --border-radius: 1rem; 
+    --box-shadow: 0 5px 5px 1px rgba(0, 0,0, 0.05);
+    --border-color: var(--gray-40);
+    --divider-color: var(--gray-30);
+
+    --logo-text-color: var(--secondary-110);
+    --logo-text-hover-color: var(--primary-100);
+
+    --navlink-text-color: var(--secondary-100);
+    --navlink-text-hover-color: var(--primary-100);
+    --navlink-text-active-color: var(--primary-100);
+
+    --btn-primary-bg-color: var(--primary-100);
+    --btn-primary-text-color: var(--gray-10);
+    --btn-border-color: transparent;
+    --btn-primary-bg-hover-color: var(--primary-90);
+    --btn-primary-text-hover-color: white;
+    --btn-border-hover-color: white;
 
     --event-card-bg-color: var(--gray-10);
-    --card-img-container-bg-color: var(--cool-gray-10);
+    --card-img-container-bg-color: var(--gray-40);
+
+    --event-date-color : var(--gray-70);
+    --event-location-color : var(--gray-80);
+    --event-about-color : var(--secondary-100);
+    --event-description-color : var(--gray-90);
+    --event-icon-color : var(--gray-50);
+
+    --input-bg-color: var(--gray-10);
+    --input-text-color: var(--gray-100);
+    --input-placeholder-color: var(--gray-50);
+    --input-border-color: var(--gray-40);
+    --input-border-hover-color: var(--primary-50);
+}
+
+/* base */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 html, body {
     margin: 0;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     font-style: normal;
     font-family: var(--font);
@@ -40,6 +91,7 @@ html, body {
     background-color: var(--background-color);
 }
 
+/* structure */
 .center-wrapper {
     display: flex;
     justify-content: center;
@@ -48,6 +100,7 @@ html, body {
 }
 
 .portal-wrapper {
+    margin: 0.5rem;
     display: grid;
     gap: 1rem;
 
@@ -67,8 +120,8 @@ html, body {
     }
 
     /* desktop */
-        @media (width >= 1400px) {
-        grid-template-columns: 250px 1fr;
+    @media (width >= 1200px) {
+        grid-template-columns: 250px 1fr;   
         grid-template-rows: auto 1fr auto;
         grid-template-areas: "nav header" 
                              "nav main"
@@ -104,52 +157,345 @@ footer {
     padding: 1.5rem;
 }
 
+.footerText {
+    font-size: 0.75rem;
+    font-weight: var(--font-semibold);
+    color: var(--gray-60);
+}
+
+/* typography */
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: var(--font-standard);
+    color: var(--headline-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: var(--font-bold);
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: var(--font-bold);
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: var(--font-bold);
+}
+
+h4 {
+    font-size: 24px;
+    font-weight: var(--font-semibold);
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: var(--font-semibold);
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: var(--font-semibold);
+}
+
+h7 {
+    font-size: 16px;
+    font-weight: var(--font-semibold);
+}
+
+/* links */
+
+.nodecoration {
+    text-decoration: none;
+}
+
+/* buttons */
+.btn {
+    cursor: pointer;
+    border-radius: 2.3rem;
+    background-color: var(--btn-primary-bg-color);
+    color: var(--btn-primary-text-color);
+    border-color: var(--btn-border-color);
+    font-size: 0.75rem;
+    font-weight: var(--font-medium);
+    font-family: var(--font-standard);
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 0.5rem;  */
+}
+    .btn:hover {
+        color: var(--btn-primary-text-hover-color);
+        border-color: var(--btn-border-hover-color); 
+        background-color: var(--btn-primary-bg-hover-color);
+    }
+
+.btn-book {
+    margin-top: 2rem;
+    width: 25%;
+}
+
+.btn-book-event {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+/* logotype */
+.ventixe-logotype {
+    font-size: 1.5rem;
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    color: var(--logo-text-color);
+    padding: 0 1rem;
+    
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+    .ventixe-logotype:hover,
+    .ventixe-logotype a:hover{
+        text-decoration: none;
+        color: var(--logo-text-hover-color);
+    }
+
+/* nav-links */
+.nav-links {
+    margin: 3rem 1rem;
+    display: grid;
+    align-items:center;
+    gap: 2rem;
+}
+
+    .nav-links > .nav-link {
+        color: var(--navlink-text-color);
+        font-weight: var(--font-regular);
+        font-size: 1rem;
+        text-decoration: none;
+
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+        .nav-links > .nav-link:hover {
+            color: var(--navlink-text-hover-color);
+            background-color: var(--navlink-background-hover-color);
+        }
+
+        .nav-links > .nav-link.active {
+            color: var(--navlink-text-active-color);
+            background-color: var(--navlink-background-active-color);
+        }
+
+/* divider */
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem 0;
+
+}
+    .divider::before,
+    .divider::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid var(--divider-color);
+    }
+    .divider:not(:empty)::before {
+        margin-right: 1rem;
+    }
+    .divider:not(:empty)::after {
+        margin-left: 1rem;
+    }
+    .divider span {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: var(--text-muted-color); /* not yet defined */
+    }
+
+
+/* event-card */
+.eventDate {
+    font-size: 0.75rem;
+    color: var(--event-date-color);
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+ .eventDate i {
+        color: var(--event-icon-color);
+    }
+
+.eventTitle {
+    color: var(--text-color);
+}
+
+.eventLocation {
+    font-size: 0.75rem;
+    color: var(--event-location-color);
+
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+    .eventLocation i {
+        color: var(--event-icon-color);
+    }
+
 
 .event-card {
     background-color: var(--event-card-bg-color);
     border-radius: var(--border-radius);
     padding: 1rem;
+    padding-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
    
-    width: 275px;
-    height: 350px;
+    width: 280px;
 
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-   
-    
+    gap: 0.5rem;    
 }
     .event-card > .card-img-container { 
         background-color: var(--card-img-container-bg-color);
         border-radius: var(--border-radius);
         height: 200px;
-
+        margin-bottom: 0.75rem;
     }
 
-/*
-.card1 {
-    padding: 1.2rem 1rem 1.2rem 1.5rem;
-    color: var(--card-text-color);
-    background-color: var(--card-background-color);
-    border: 1px, solid var(--card-border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+/* event-details */
+.eventTitleDetails {
+    color: var(--text-color);
 }
 
-    .card1 > .card-header {        
-        //display: flex;
-        //justify-content: space-between;
-        //align-items: center;
-                
-        margin-bottom: 2rem;
-        background-color: var(--card-background-color);
+.about {
+    font-size: 11px;
+    color: var(--event-about-color);
+    font-weight: var(--font-semibold);
+}
+
+.eventDescription {
+    font-size: 12px;
+    color: var(--event-description-color);
+}
+
+.event-details-card {
+    background-color: var(--event-card-bg-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+   
+    width: 700px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;   
+}
+    .event-details-card > .card-img-container { 
+        background-color: var(--card-img-container-bg-color);
+        border-radius: var(--border-radius);
+        /* border-radius: 1rem, 1rem, 0.1rem, 0.1rem; */
+        height: 350px;
+        margin-bottom: 0.75rem;
     }
 
-    .card1 > .card-body {  
-        margin: 0 2rem;
+/* booking-event */
+.bookingEventTitle {
+    color: var(--text-color);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.booking-event-card {
+    background-color: var(--event-card-bg-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+   
+    width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; 
+}
+
+/* forms */
+form {
+    width: 100%;
+}
+
+    form .form-group {
+        display: grid;
+        gap: 0.2rem;
+        margin-bottom: 1.2rem;
+        width: 300px;
     }
 
-    .card1 > .card-footer {
-        margin-top: 2rem;
+    form label{
+        font-size: 0.75rem;
+        font-weight: var(--font-regular);
+        color: var(--gray-100);
+        padding-left: 0.3rem;
     }
-*/
+
+    /* form input, textarea */
+    form input,
+    form textarea {
+        width: 100%;
+        font-size: 0.75rem;         
+        font-weight: var(--font-regular);
+        color: var(--input-text-color);
+        padding: 0.5rem 1rem;   
+        background-color: var(--input-bg-color);
+        border-radius: 30px;
+        border: 1px solid var(--input-border-color);
+        outline: none;
+        transition: border-color 0.1s ease-in-out;
+    }
+
+        /* form input:focus/hover, textarea:focus/hover */
+        form input:focus, form input:hover,
+        form textarea:focus, form textarea:hover
+         {
+            border: 1px solid var(--input-border-hover-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* form input::placeholder, textarea::placeholder */
+        form input::placeholder,
+        form textarea::placeholder {
+            color: var(--input-placeholder-color);
+            font-weight: var(--font-regular);
+            font-size: 0.7rem;
+        }
+
+/* sections */
+#events {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+    #events .event-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+#event-details {
+    /* background-color: var(--gray-20); */
+}
+
+#booking-event {
+    /* background-color: var(--gray-20); */
+}

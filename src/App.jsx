@@ -21,10 +21,20 @@ function App() {
               <Route path="login" element={<Login />} />
           </Route>
           */}
+
+          
+          <Route element={<PortalLayout />}>
+              <Route index element={<EventPage />} />
+              <Route path="/events/:id" element={<EventDetailsPage />} />
+              <Route path="/events/booking/:id" element={<BookingEventPage />} />
+          </Route>
+          
       
+          {/*
           <Route path="/" element={<EventPage />} />
           <Route path="/events/:id" element={<EventDetailsPage />} />
           <Route path="/events/booking/:id" element={<BookingEventPage />} />
+          */}
       </Routes>
     </>
   )
